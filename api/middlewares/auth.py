@@ -28,6 +28,7 @@ def verify_token():
                 
             try:
                 jwt.decode(token, current_app.config['SECRET_KEY'], algorithms=['HS256'])
+                
             except jwt.ExpiredSignatureError:
                 return jsonify({
                     'status': 'error',

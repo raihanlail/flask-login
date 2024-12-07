@@ -65,12 +65,52 @@ flask -app app run # or python app.py
 flask --app app run --debug
 ```
 
-## Avaliable Routes
+## Avaliable Routes (Authentication)
 - `POST /auth/login` - User Login
 - `POST /auth/signup` - User Registration
 - `GET /auth/me` - Get Current User Profile
 - `POST /auth/logout` - User Logout
 
+## Available Routes (User)
+- `GET /profile/me` - Get Current User Profile
+- `PATCH /profile/edit` - Edit Current User Profile
+
+## Available Routes (Places)
+- `GET /places` - Get All Places
+- `GET /places/{place_id}` - Get Place by ID
+- `GET /places/category/{category}` - Get Places by Category. avaliable category(natural, historic, landmark, amenity, religion, waterway, sport)
+
+## Sample Responses
+```json
+ {
+        "avg_rating": null,
+        "geometry": {
+            "coordinates": [
+                115.6028731,
+                -8.2837348
+            ],
+            "type": "Point"
+        },
+        "id": "node/12052475969",
+        "properties": {
+            "city": null,
+            "historic": null,
+            "housenumber": null,
+            "images": [
+                "https://images.unsplash.com/photo-1535186830872-2c5fe5cc62fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NzgyNDJ8MHwxfHNlYXJjaHwxfHxhdHRyYWN0aW9ufGVufDB8fHx8MTczMjM4NDk2Mnww&ixlib=rb-4.0.3&q=80&w=400",
+                "https://images.unsplash.com/photo-1416397202228-6b2eb5b3bb26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NzgyNDJ8MHwxfHNlYXJjaHwyfHxhdHRyYWN0aW9ufGVufDB8fHx8MTczMjM4NDk2Mnww&ixlib=rb-4.0.3&q=80&w=400",
+                "https://images.unsplash.com/photo-1577378664765-388cda96aff7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NzgyNDJ8MHwxfHNlYXJjaHwzfHxhdHRyYWN0aW9ufGVufDB8fHx8MTczMjM4NDk2Mnww&ixlib=rb-4.0.3&q=80&w=400"
+            ],
+            "landmark": null,
+            "name": "Emerald",
+            "natural": null,
+            "postcode": null,
+            "street": null,
+            "tourism": "attraction"
+        },
+        "type": "Feature"
+    },
+    ```
 ## Firebase Setup
 1.  Create a Firebase project in the Firebase Console
 1. Enable Email/Password authentication

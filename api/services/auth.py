@@ -5,7 +5,7 @@ from api.models.user import User
 from api.schemas.auth import LoginSchema, SignupSchema
 import jwt
 import datetime
-from flask import current_app
+from flask import current_app 
 from pydantic import ValidationError
 
 class AuthService:
@@ -105,7 +105,8 @@ class AuthService:
                 'data': {
                     'user_id': user.id,
                     'email': user.email,
-                    'username': user.username
+                    'username': user.username,
+                    'history': user.search_history
                 }
             }), HTTPStatus.OK
             
@@ -132,3 +133,5 @@ class AuthService:
                 'status': 'error',
                 'message': 'Error during logout'
             }), HTTPStatus.BAD_REQUEST
+
+    
